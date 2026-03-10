@@ -11,20 +11,20 @@ public class ERyder {
     private double totalFare;
 
 
-    private String bikeID;
+    private int bikeID;
     private int batteryLevel;
     private double kmDriven;
     private boolean isAvailable;
 
     public ERyder() {
-        this.bikeID = "000000";
+        this.bikeID = 0;
         this.batteryLevel = 100;
         this.kmDriven = 0;
         this.isAvailable = true;
         LINKED_ACCOUNT="AS412345";
         LINKED_PHONE_NUMBER=1955679310;
     }
-    public ERyder(String bikeID, int batteryLevel, double kmDriven, boolean isAvailable) {
+    public ERyder(int bikeID, int batteryLevel, double kmDriven, boolean isAvailable) {
         this.bikeID = bikeID;
         this.batteryLevel = 100;
         this.kmDriven = 0;
@@ -32,7 +32,7 @@ public class ERyder {
         LINKED_ACCOUNT="AS412345";
         LINKED_PHONE_NUMBER=1955679310;
     }
-    public ERyder(String bikeID, int batteryLevel, boolean isAvailable, float kmDriven, String linkedAccount, long linkedPhoneNumber){
+    public ERyder(int bikeID, int batteryLevel, boolean isAvailable, float kmDriven, String linkedAccount, long linkedPhoneNumber){
         this.bikeID = bikeID;
         this.batteryLevel = batteryLevel;
         this.isAvailable = isAvailable;
@@ -54,7 +54,7 @@ public class ERyder {
     }
 
 
-    public String getBikeID() {
+    public int getBikeID() {
         return bikeID;
     }
 
@@ -86,7 +86,7 @@ public class ERyder {
         this.kmDriven = kmDriven;
     }
 
-    public void setBikeID(String bikeID) {
+    public void setBikeID(int bikeID) {
         this.bikeID = bikeID;
     }
 
