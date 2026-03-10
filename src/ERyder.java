@@ -7,8 +7,8 @@ public class ERyder {
     private final String LINKED_ACCOUNT;
     private final long LINKED_PHONE_NUMBER;
 
-    private int  totalUsageInMinutes;
-    private double totalFare = 60;
+    private int usageInMinutes;
+    private double totalFare;
 
 
     private String bikeID;
@@ -21,38 +21,36 @@ public class ERyder {
         this.batteryLevel = 100;
         this.kmDriven = 0;
         this.isAvailable = true;
-        LINKED_ACCOUNT="AS4";
+        LINKED_ACCOUNT="AS412345";
         LINKED_PHONE_NUMBER=1955679310;
     }
     public ERyder(String bikeID, int batteryLevel, double kmDriven, boolean isAvailable) {
-        setBikeID(bikeID);
-        setBatteryLevel(batteryLevel);
-        setKmDriven(kmDriven);
-        setIsAvailable(isAvailable);
-        LINKED_ACCOUNT="AS4";
-        LINKED_PHONE_NUMBER=1955679310;
-    }
-    public ERyder(String bikeID, int batteryLevel, double kmDriven, boolean isAvailable,String lINKED_ACCOUNT,long lINKED_PHONE_NUMBER)  {
         this.bikeID = bikeID;
         this.batteryLevel = 100;
         this.kmDriven = 0;
         this.isAvailable = true;
-        LINKED_ACCOUNT="AS4";
+        LINKED_ACCOUNT="AS412345";
         LINKED_PHONE_NUMBER=1955679310;
     }
-
-    public  void  printRideDetails(int totalUsageInMinutes){
-        System.out.println("Ride Details:");
-        System.out.println("You account: " + LINKED_ACCOUNT);
-        System.out.println("Linked phone number: " + LINKED_PHONE_NUMBER);
-        System.out.println("The usage in minutes is " + totalUsageInMinutes);
-        System.out.println("The total fare is "+calculateFare(totalUsageInMinutes)+".");
+    public ERyder(String bikeID, int batteryLevel, boolean isAvailable, float kmDriven, String linkedAccount, long linkedPhoneNumber){
+        this.bikeID = bikeID;
+        this.batteryLevel = batteryLevel;
+        this.isAvailable = isAvailable;
+        this.kmDriven = kmDriven;
+        LINKED_ACCOUNT = linkedAccount;
+        LINKED_PHONE_NUMBER = linkedPhoneNumber;
     }
 
-    private double calculateFare(int totalUsageInMinutes) {
-        totalFare = BASE_FARE + (PER_MINUTE_FARE * totalUsageInMinutes);
-        System.out.println("Total fare: " + totalFare);
-        return totalFare;
+    public void printRideDetails(int usageInMinutes){
+        System.out.println("The linked account is "+LINKED_ACCOUNT+".");
+        System.out.println("The linked phone number is "+LINKED_PHONE_NUMBER+".");
+        System.out.println("The bike ID is "+bikeID+".");
+        System.out.println("The usage in minutes is "+usageInMinutes+".");
+        System.out.println("The total fare is "+calculateFare(usageInMinutes)+".");
+    }
+    private double calculateFare(int usageInMinutes){
+        totalFare = BASE_FARE + (PER_MINUTE_FARE*usageInMinutes);
+        return usageInMinutes*PER_MINUTE_FARE+BASE_FARE;
     }
 
 

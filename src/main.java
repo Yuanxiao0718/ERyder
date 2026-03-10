@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 
 public class main {
-    public static void main(String[] args) {
+    public static void Main(String[] args) {
         ERyder bike1 = new ERyder();
         bike1.printBikeDetails();
         bike1.ride();
