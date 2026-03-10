@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 
-public class Main {
+public class main {
     public static void main(String[] args) {
         ERyder bike1 = new ERyder();
         bike1.printBikeDetails();
