@@ -84,11 +84,10 @@ public class Feedback {
     private boolean checkFeedbackLength(String completeFeedback) {
         if(completeFeedback.length()>500){
             longFeedback = true;
-            return longFeedback;
         }else{
             longFeedback = false;
-            return longFeedback;
         }
+        return longFeedback;
     }
     private String createReviewID(String firstName,String lastName,String completeFeedback) {
         reviewID=(firstName.substring(2,6) + lastName.substring(2,6)).toUpperCase();
