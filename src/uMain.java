@@ -1,4 +1,4 @@
-public class Umain {
+public class uMain {
     public static void main(String[] args) {
         UserRegistration userRegistration = new UserRegistration();
         userRegistration.registration();
