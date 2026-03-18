@@ -217,9 +217,11 @@ public class UserRegistration {
     private void print(Scanner sc ){
         System.out.println("Please enter your full name:");
         fullName=sc.nextLine();
+        sc.nextLine();
         System.out.println("Please enter your email address:");
         emailAddress=sc.nextLine();
         emailValid=analyseEmail(emailAddress);
+
         System.out.println("Please enter your date of birth (YYYY-MM-DD):");
         dateOfBirth=sc.nextLine();
         LocalDate dob= LocalDate.parse(dateOfBirth);
