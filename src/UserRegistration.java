@@ -42,7 +42,6 @@ public class UserRegistration {
             int choice=sc.nextInt();
             switch (choice){
                 case 1:
-
                     userType="Regular User";
                     print(sc);
                     finalCheckpoint();
