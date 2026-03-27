@@ -20,12 +20,21 @@ public class AdminPanel {
             System.out.println("3.Remove Registered Users");
             System.out.println("4.Update Registered Users");
             System.out.println("5.EXIT");
+            System.out.println("6.Demo the Bike Rental System");
             int choice = sc.nextInt();
             switch (choice) {
                 case 1->addNewUsers();
                 case 2->viewRegisteredUsers();
                 case 3->removeRegisteredUsers();
                 case 4->updateRegisteredUsers();
+                case 5 -> {
+                    System.out.println("Thank you for using E-Ryder.");
+                    return;
+                }
+                case 6 -> {
+                    BikeRental bikeRental = new BikeRental(false, null, null, null, null, false, null, null);
+                        bikeRental.simulateApplicationInput();
+                }
                 default -> System.out.println("Invalid choice. Please try again");
 
             }
