@@ -23,6 +23,7 @@ public class RegisteredUsers {
         this.cardProvider = cardProvider;
         this.cardExpiryDate = cardExpiryDate;
         this.cvv = cvv;
+        this.userType = userType;
     }
 
     public String[] getLastThreeTrips() {

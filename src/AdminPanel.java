@@ -15,9 +15,13 @@ public class AdminPanel {
         System.out.println("4. Update Registered Users");
         System.out.println("5. Demo the Bike Rental System");
         System.out.println("6. EXIT");
+        System.out.println("7. View System Logs");
+        System.out.println("8. Manage Pending Bike Requests");
+
         System.out.println("Enter your choice: ");
         int choice = sc.nextInt();
         sc.nextLine();
+        BikeService bikeService = new BikeService();
 
         switch (choice) {
             case 1:
@@ -39,10 +43,39 @@ public class AdminPanel {
             case 6:
                 System.out.println("Exiting program. Goodbye!");
                 System.exit(0);
+                break;
+            case 7:
+                bikeService.viewSystemLogs();
+                break;
+            case 8:
+                manageRequests();
+                break;
             default:
                 System.out.println("Invalid choice. Please try again.");
         }
     }
+    public void manageRequests() {
+        BikeService bikeService = new  BikeService();
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("1. View Queue");
+            System.out.println("2. Update Queue (Remove First)");
+            System.out.println("3. Exit");
+            if (!sc.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a number.");
+                sc.next();
+                continue;
+            }
 
+            int c = sc.nextInt();
+            sc.nextLine();
+
+            if (c == 1) bikeService.viewQueue();
+            else if (c == 2) bikeService.removeFirstRequest();
+            else if (c == 3) break;
+            else System.out.println("Invalid choice. Please try again.");
+        }
+        sc.close();
+    }
 
 }

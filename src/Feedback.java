@@ -90,13 +90,30 @@ public class Feedback {
         return longFeedback;
     }
     private String createReviewID(String firstName,String lastName,String completeFeedback) {
-        reviewID=(firstName.substring(2,6) + lastName.substring(2,6)).toUpperCase();
-        reviewID+=completeFeedback.substring(10,15).toLowerCase();
-        reviewID+=completeFeedback.length()+"_";
-        reviewID+=System.currentTimeMillis();
-        reviewID=reviewID.replace(" ", "");
+        // 检查姓名长度，避免索引越界
+        int firstNameEnd = Math.min(firstName.length(), 6);
+        int lastNameEnd = Math.min(lastName.length(), 6);
+
+        String firstPart = firstName.substring(2, firstNameEnd).toUpperCase();
+        String lastPart = lastName.substring(2, lastNameEnd).toUpperCase();
+
+        reviewID = firstPart + lastPart;
+
+        // 检查 completeFeedback 长度
+        if(completeFeedback.length() >= 15) {
+            reviewID += completeFeedback.substring(10, 15).toLowerCase();
+        } else if(completeFeedback.length() >= 10) {
+            reviewID += completeFeedback.substring(10).toLowerCase();
+        } else {
+            reviewID += "_____";
+        }
+
+        reviewID += completeFeedback.length() + "_";
+        reviewID += System.currentTimeMillis();
+        reviewID = reviewID.replace(" ", "");
         return reviewID;
     }
+
     @Override
     public String toString(){
         return "Feedback from " + firstName+ " "+lastName+" {"+email+"}\n\n"+

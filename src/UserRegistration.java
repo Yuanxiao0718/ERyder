@@ -38,9 +38,9 @@ public class UserRegistration {
         System.out.println("Please enter your choice (1 or 2):");
 
         Scanner sc=new Scanner(System.in);
-        while (true) {
-            int choice=sc.nextInt();
-            switch (choice){
+
+        int choice=sc.nextInt();
+        switch (choice){
                 case 1:
                     userType="Regular User";
                     print(sc);
@@ -53,15 +53,16 @@ public class UserRegistration {
                 default:
                     System.out.println("Please select a valid option!");
                     return;
-            }
-            if (emailValid && ageValid && cardNumberValid && cardStillValid && validCVV) {
-                System.out.println("Registration successful!");
-                sc.close();
-                break;
-            } else {
-                System.out.println("Registration failed! Please try again.");
-            }
         }
+        if (emailValid && ageValid && cardNumberValid && cardStillValid && validCVV) {
+                System.out.println("Registration successful!");
+
+
+        } else {
+                System.out.println("Registration failed! Please try again.");
+                registration();
+        }
+
 
 
     }
@@ -131,7 +132,7 @@ public class UserRegistration {
         }else {
             System.out.println("Your card provider is " + cardProvider);
         }
-        registration();
+//        registration();
         return cardNumberValid;
     }
 
@@ -149,21 +150,22 @@ public class UserRegistration {
             cardStillValid=false;
             System.out.println("Sorry, your card has expired. Please use another card. Return to the registration start page.");
         }
-        registration();
+//        registration();
         return cardStillValid;
     }
 
 
     private boolean analyseCVV(int cvv){
         String cvvStr = Integer.toString(cvv);
-        if(cardProvider.equals("American Express")&&cvvStr.length()==4||cardProvider.equals("VISA")&&cvvStr.length()==3||cardProvider.equals("MasterCard")&&cvvStr.length()==3){
+        if(cardProvider.equals("American Express")&&cvvStr.length()==4||
+                cardProvider.equals("VISA")&&cvvStr.length()==3||cardProvider.equals("MasterCard")&&cvvStr.length()==3){
             System.out.println("Card CVV is valid.");
             validCVV=true;
         }else {
             System.out.println("Invalid CVV for the given card. Going back to the start of the registration process.");
             validCVV=false;
         }
-        registration();
+//        registration();
         return validCVV;
     }
 
@@ -185,10 +187,11 @@ public class UserRegistration {
             if(!cardStillValid){
                 System.out.println("Card expired.");
                 System.out.println("Returning to the start of the registration process.");
-                registration();
+//                registration();
             }
         }
     }
+
 
 
     private void chargeFees(){
@@ -230,6 +233,7 @@ public class UserRegistration {
         System.out.println("Please enter your card provider (VISA, Mastercard or American Express):");
         cardNumber=sc.nextLong();
         cardNumberValid=analyseCardNumber(cardNumber);
+        sc.nextLine();
         System.out.println("Please enter the card expiration date:");
         cardExpiryDate=sc.nextLine();
         cardStillValid=analyseCardExpiryDate(cardExpiryDate);

@@ -28,7 +28,7 @@ public class ERyderLog {
     @Override
     public String toString() {
         return log + "–" +
-                event + '\'' +
-               timeStamp ;
+                event +
+               timeStamp;
     }
 }

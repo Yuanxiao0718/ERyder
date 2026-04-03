@@ -1,11 +1,11 @@
 import java.util.Random;
 
 
-public class main {
-    public static void Main(String[] args) {
+public class Main {
+    public static void main(String[] args) {
         UserRegistration userRegistration = new UserRegistration();
         userRegistration.registration();
-        System.out.println(userRegistration);
+//        System.out.println(userRegistration);
 
         AdminPanel adminPanel = new AdminPanel();
         adminPanel.userManagementOptions();
